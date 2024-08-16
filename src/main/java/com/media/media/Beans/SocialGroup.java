@@ -6,18 +6,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-public class Group {
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class SocialGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long groupId;
+    private Long id;
 
     @ManyToMany(mappedBy = "groups")
-    private Set<User> users =new HashSet<>();
+    private Set<SocialUser> socialUsers = new HashSet<>();
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(id);
+    }
 }

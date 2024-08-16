@@ -1,6 +1,6 @@
 package com.media.media.Controller;
 
-import com.media.media.Beans.User;
+import com.media.media.Beans.SocialUser;
 import com.media.media.Service.SocialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,12 +18,12 @@ public class SocialController {
     private SocialService socialService;
 
     @GetMapping("/social/users")
-    public ResponseEntity<List<User>> getUsers(){
+    public ResponseEntity<List<SocialUser>> getUsers(){
         return new ResponseEntity<>(socialService.getAllUsers(), HttpStatus.OK);
     }
 
     @PostMapping("/social/users")
-    public ResponseEntity<User> saveUser(@RequestBody User user){
-        return new ResponseEntity<>(socialService.saveUser(user), HttpStatus.CREATED);
+    public ResponseEntity<SocialUser> saveUser(@RequestBody SocialUser socialUser){
+        return new ResponseEntity<>(socialService.saveUser(socialUser), HttpStatus.CREATED);
     }
 }

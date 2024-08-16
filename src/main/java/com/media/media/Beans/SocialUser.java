@@ -5,25 +5,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-public class User {
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class SocialUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long id;
 
     @OneToOne(mappedBy = "user")
-    private Profile profile;
+    //@JoinColumn(name = "social_profile_id")
+    private SocialProfile socialProfile;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "socialUser")
     private List<Post> posts = new ArrayList<>();
 
     @ManyToMany
@@ -31,6 +28,11 @@ public class User {
             name = "user_group",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "group_id")
-            )
-    private Set<Group> groups = new HashSet<>();
+    )
+    private Set<SocialGroup> groups = new HashSet<>();
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(id);
+    }
 }

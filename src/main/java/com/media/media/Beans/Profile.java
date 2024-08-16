@@ -16,6 +16,6 @@ public class Profile {
     private Long profileId;
 
     @OneToOne
-    @JoinColumn(name = "user")
+    @JoinColumn(name = "user_id")
     private User user;
 }

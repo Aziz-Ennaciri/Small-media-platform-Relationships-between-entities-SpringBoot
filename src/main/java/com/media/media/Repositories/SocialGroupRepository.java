@@ -1,9 +1,9 @@
 package com.media.media.Repositories;
 
-import com.media.media.Beans.SocialProfile;
+import com.media.media.Beans.SocialGroup;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProfileRepository extends JpaRepository<SocialProfile,Long> {
+public interface SocialGroupRepository extends JpaRepository<SocialGroup,Long> {
 }

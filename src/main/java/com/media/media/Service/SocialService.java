@@ -1,7 +1,7 @@
 package com.media.media.Service;
 
 import com.media.media.Beans.SocialUser;
-import com.media.media.Repositories.UserRepository;
+import com.media.media.Repositories.SocialUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,13 +11,13 @@ import java.util.List;
 public class SocialService{
 
     @Autowired
-    private UserRepository userRepository;
+    private SocialUserRepository socialUserRepository;
 
     public List<SocialUser> getAllUsers() {
-        return userRepository.findAll();
+        return socialUserRepository.findAll();
     }
 
     public SocialUser saveUser(SocialUser user) {
-        return userRepository.save(user);
+        return socialUserRepository.save(user);
     }
 }

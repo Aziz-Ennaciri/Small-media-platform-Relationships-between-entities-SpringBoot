@@ -5,9 +5,9 @@ import com.media.media.Beans.Post;
 import com.media.media.Beans.SocialProfile;
 import com.media.media.Beans.SocialUser;
 import com.media.media.Repositories.PostRepository;
-import com.media.media.Repositories.GroupRepository;
-import com.media.media.Repositories.ProfileRepository;
-import com.media.media.Repositories.UserRepository;
+import com.media.media.Repositories.SocialGroupRepository;
+import com.media.media.Repositories.SocialProfileRepository;
+import com.media.media.Repositories.SocialUserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,12 +15,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DataInitializer {
 
-    private final UserRepository userRepository;
-    private final GroupRepository groupRepository;
-    private final ProfileRepository socialProfileRepository;
+    private final SocialUserRepository userRepository;
+    private final SocialGroupRepository groupRepository;
+    private final SocialProfileRepository socialProfileRepository;
     private final PostRepository postRepository;
 
-    public DataInitializer(UserRepository userRepository, GroupRepository groupRepository, ProfileRepository socialProfileRepository, PostRepository postRepository) {
+    public DataInitializer(SocialUserRepository userRepository, SocialGroupRepository groupRepository, SocialProfileRepository socialProfileRepository, PostRepository postRepository) {
         this.userRepository = userRepository;
         this.groupRepository = groupRepository;
         this.socialProfileRepository = socialProfileRepository;
